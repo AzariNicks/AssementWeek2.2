@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////
 ///////////////////MENU.JS/////////////////////
 ///////////////////////////////////////////////
+const cl = any => console.log(any)
 /*
     In this file, you'll be writing code that
     deals with food objects, arrays of objects
@@ -31,7 +32,17 @@
 */
 
 //CODE HERE
+const pizza = {
 
+     name: 'pizza',
+     price: '70.00',
+     category: 'good',
+     popularity: 10,
+     rating: 10,
+     tags: ['bruh', 'moment', 'for sure']
+
+
+} 
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,7 +54,7 @@
 */
 
 //CODE HERE
-
+cl(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -54,26 +65,25 @@
 
 //CODE HERE
 
-
+cl(pizza.tags[1])
 /*
-    Third, destructure the price off of the
+    Third, cut the price off of the
     pizza object.
     
     Print the value of your new price variable.
 */
 
 //CODE HERE
-
-
+const {price} = pizza
+cl(price)
 /*
     Fourth, and last, destructure the category
     property.
 
     Print the value of your category variable. 
 */
-
-//CODE HERE
-
+const {category} = pizza
+cl(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,8 +98,52 @@
 */
 
 //CODE HERE
-
-
+const foodArr = [
+    Tacos =
+    {
+        name: 'Tacos',
+        price: '30.00',
+        category: 'Dinner',
+        popularity: 20,
+        rating: 10,
+        tags: ['Mexican', 'Dinner', 'Lunch', 'GoodFood', 'Fillers']
+    } ,
+    Pancakes =
+    {
+        name: 'Pancakes',
+        price: '21.00',
+        category: 'Breakfast',
+        popularity: 5,
+        rating: 3,
+        tags: ['Breakfast2', 'Healthier']
+    } ,
+    Bacon =
+    {
+        name: 'Bacon',
+        price: '5.00',
+        category: 'Breakfast',
+        popularity: 15,
+        rating: 5,
+        tags: ['Breakfast2', 'Dinner', 'Lunch']
+    } ,
+    Frenchtoast =
+    {
+        name: 'Frenchtoast',
+        price: '9.00',
+        category: 'Breakfast',
+        popularity: 15,
+        rating: 5,
+        tags: ['Breakfast2', 'GoodFood', 'Healthy']
+    } ,
+    pancakes = 
+    {
+    name: 'BaconPancakes',
+    price: '5.00',
+    category: 'Breakfast',
+    popularity: 15,
+    rating: 5,
+    tags: ['Breakfast2', 'Dinner', 'Lunch', 'GoodFood', 'Healthy']
+                                                }                             ]
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,9 +159,11 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(Objects => {
+    return Objects.tags.includes('Healthier')
+})
 
-
+cl(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -149,7 +205,18 @@
 */
 
 //CODE HERE
+const  filterByProperty = (prop, num, type) => {
+    const filterArr = foodArr.filter(thing => {
+        if(type === 'above'){
+            return thing[prop] > num
+        } else if(type === 'below'){
+            return thing[prop] < num
+        }
+            else{ return `not valid`}
+    })
+return filterArr
 
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +226,6 @@
 */
 
 //CODE HERE
+cl(filterByProperty('price',6,'above'))
+
+//Finished 

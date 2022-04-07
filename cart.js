@@ -6,6 +6,7 @@
     calculate order totals. You'll also be 
     creating customer objects.  
 */
+const cl = any => console.log(any)
 
 
 //////////////////PROBLEM 1////////////////////
@@ -35,14 +36,10 @@ const cart = [
 
 
 //CODE HERE
-/* cart.forEach((element) => {console.log([element.price])})
-
- const summedPrice = cart.reduce(function (a, b) {
-    return {cart['price']: a.x + b.x}; })
-
-  spent an hour on this,fuck reduce 
-*/
-
+const summedPrice = cart.reduce((acc, ord) => {
+    return acc + ord.price
+}, 0) 
+cl(summedPrice)
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
@@ -59,12 +56,12 @@ const cart = [
 */
 
 //CODE HERE
- const calcFinalProce = (cartTotal, couponValue, tax) => {
+ const calcFinalPrice = (cartTotal, couponValue, tax) => {
         let FinalPrice = cartTotal * (tax + 1) - couponValue 
   return FinalPrice 
 
  }
-
+cl(calcFinalPrice(50, 10, .01))
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -120,3 +117,5 @@ const CartForRestarant = [
         HomeAddress: '200 love Ave'
     }, 
 ]
+
+// finished 

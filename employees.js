@@ -97,17 +97,16 @@ console.log(empTwo)
 
  class Manager extends Employee {
         constructor(name, shifts, employees)
-        {super(name,shifts)
-            this.Array = employees
+        {super(name, shifts)
+            this.employees = employees
            
         
         
 
 
         }
-        getEmployees() {console.log(`${this.name} manages ${this.Array}`)}
-        addEmployee(emp) {let NewArray = []
-        NewArray.push(emp)}
+        getEmployees() {console.log(`${this.name} manages ${this.employees}`)}
+        addEmployee(emp) {this.employees.push(emp)}
  }
 
 /*
@@ -122,7 +121,7 @@ console.log(empTwo)
 */
 
 //CODE HERE
-const manager = new Manager('Winston', `weekday mornings, weekday afternoons`, ['james, Schmidt'])
+const manager = new Manager('Winston', `weekday mornings, weekday afternoons`, ['Cece, Schmidt'])
 
 /*
     Call the `getEmployees` method on the

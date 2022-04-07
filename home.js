@@ -1,3 +1,4 @@
+const cl = logged => console.log(logged)
 ///////////////////////////////////////////////
 ///////////////////HOME.JS/////////////////////
 ///////////////////////////////////////////////
@@ -51,14 +52,15 @@ const greetUser = (username) => `welcome back, ${username}`
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-const canWeChecker = (zipcode) => {
-    
-    if(zipcode === 85205){return 'Your in our delivery Zone'}
-    else{return `No thanks your to far`}
-} 
-const canWeDeliver = () => {for(x =0; x < deliveryAreaZipCodes.length;x++){console.log(canWeChecker(deliveryAreaZipCodes[x]))}}
-canWeDeliver()
+const canWeDeliver = (zipcode) => {
+    for(let i = 0;i < deliveryAreaZipCodes.length;i++){
+    if(zipcode === deliveryAreaZipCodes[i]){
+    return `You're in our delivery zone!`} }
+    return `Sorry we can't deliver to that address`
 
+}
+cl(canWeDeliver(000000))
+cl(canWeDeliver(85203))
 
 /* 
     Problem 2 Continued
@@ -78,9 +80,15 @@ canWeDeliver()
 */
 
 // CODE HERE
-if(deliveryAreaZipCodes.includes(85205) === true){console.log(`Your In the Area`)}
-else{`Your too far`}
+const canWeDeliverTwo = (zipCode) => {
+   if(deliveryAreaZipCodes.includes(zipCode)){
+    return  `You're in our delivery zone!` 
+   }
+   else{return `Sorry we can't deliver to that address`}
+}
 
+cl(canWeDeliver(85203))
+cl(canWeDeliver(00000))
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -105,6 +113,8 @@ const deals = [
     }
 ]
 
+deals[0].title = deals[0].title.replace('15','10')
+cl(deals[0].title)
 /*
     The owner has decided to take the 15% off
     deal down to 10%.
@@ -115,7 +125,7 @@ const deals = [
 */
 
 //CODE HERE
-console.log((deals))
+// console.log((deals))
 
 
 /*
@@ -132,3 +142,7 @@ console.log((deals))
 */
 
 //CODE HERE
+deals[1].desc = deals[1].desc.replace('March','April').trim()
+cl(deals[1].desc)
+
+// Finished  
